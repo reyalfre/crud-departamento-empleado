@@ -26,5 +26,10 @@ fun getEmpleadosInit()= listOf(
         UUID.randomUUID(),
         nombre = "Teofilo",
         fecha = LocalDate.parse("1983-01-20")
+    ),
+    Empleado(
+        UUID.randomUUID(),
+        nombre = "Teofila",
+        fecha = LocalDate.parse("1983-01-20")
     )
 )

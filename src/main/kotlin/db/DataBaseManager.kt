@@ -73,8 +73,6 @@ object DataBaseManager {
         return executeQuery(query, *params)
     }
 
-
-    // USO esta función porque los UUID los genero desde la propia aplicación
     @Throws(SQLException::class)
     fun insert(insertSQL: String, vararg params: Any?): Int {
         return updateQuery(insertSQL, *params)

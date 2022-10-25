@@ -20,17 +20,17 @@ class DepartamentoController(private val departamentoRepository: DepartamentoRep
         return departamento
     }
 
-    fun getTenistaById(uuid: UUID): Departamento? {
+    fun getDepartamentoById(uuid: UUID): Departamento? {
         logger.debug { "Obteniendo tenista con uuid $uuid" }
         return departamentoRepository.findById(uuid)
     }
 
-    fun updateTenista(departamento: Departamento) {
+    fun updateDepartamento(departamento: Departamento) {
         logger.debug { "Actualizando departamento $departamento" }
         departamentoRepository.save(departamento)
     }
 
-    fun deleteTenista(it: Departamento): Boolean {
+    fun deleteDepartamento(it: Departamento): Boolean {
         logger.debug { "Borrando departamento $it" }
         return departamentoRepository.delete(it)
     }

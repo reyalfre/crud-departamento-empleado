@@ -1,21 +1,30 @@
 import controller.DepartamentoController
+import controller.EmpleadoController
 import db.DataBaseManager
 import db.DataBaseManager.createTables
 import db.createTables
 import db.getDepartamentosInit
+import db.getEmpleadosInit
 import repository.DepartamentoRepositoryImpl
+import repository.EmpleadoRepository
+import repository.EmpleadoRepositoryImpl
 
 fun main(args: Array<String>) {
     initDataBase()
 
-    val controller = DepartamentoController(DepartamentoRepositoryImpl())
+    val departamentoController = DepartamentoController(DepartamentoRepositoryImpl())
+    val empleadoController = EmpleadoController(EmpleadoRepositoryImpl())
 
-    getDepartamentosInit().forEach { departamento -> controller.createDepartamento(departamento) }
+    getDepartamentosInit().forEach { departamento -> departamentoController.createDepartamento(departamento) }
+    getEmpleadosInit().forEach { empleado -> empleadoController.createEmpleado(empleado) }
 
 
 
-var departamento=controller.getDepartamentos().sortedBy { it.nombre }
+var departamento=departamentoController.getDepartamentos().sortedBy { it.nombre }
     departamento.forEach { departamento -> println(departamento)  }
+
+var empleado=empleadoController.getEmpleados().sortedBy { it.nombre }
+    empleado.forEach { empleado -> println(empleado) }
 }
 fun initDataBase(){
     DataBaseManager.open()
